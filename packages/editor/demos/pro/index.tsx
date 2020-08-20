@@ -91,6 +91,10 @@ const Pro: React.FC = (): ReactElement => {
             renderSelectMode={()=> <></>}
             gutters = {["CodeMirror-lint-markers", "CodeMirror-linenumbers", "CodeMirror-foldgutter" ]}
             getEditor={(ref) => editor = ref}
+            hintOptions={{
+              completeSingle: false,
+              keywords: ['orderTime', 'contact', 'sysTime', 'user']
+            }}
             onChange={handleCodeEditorChange}
           />
         </div>
