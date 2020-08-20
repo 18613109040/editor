@@ -51,14 +51,9 @@ nav:
 
 ![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/tapd_41909965_1597896506_86.png)
 
-## 5.1 具体实现功能
-
-![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/1597910242757_21E6DE06-82D3-4407-8845-8E2EF1036C6A.png)
-
-
 ## 6. 组件架构图
 
-![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/tapd_41909965_1597282124_45.png)
+![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/1597912552611_2B342DF7-1CDA-4AD0-B748-EB249A0D4211.png)
 
 #### 名词解释
 
