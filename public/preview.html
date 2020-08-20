@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      width: 280px;
+      height: 200px;
+    }
+  </style>
+  <script>
+    // setTimeout(function(){
+    //   console.dir(window)
+    //   window.top = window
+    //   window.self = window
+    //   const sandbox = createSandbox(window.context)
+    //   sandbox(window.code)
+    // },2000)
+    function test() {
+      alert("xxxx")
+    }
+  </script>
+  <body>
+    <div>
+      <button onclick="test()"></button>
+    </div>
+  </body>
+</html>

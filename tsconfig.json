@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "sourceMap": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "composite": true,
+    "paths": {
+      "@hy/code-editor": ["./packages/editor/src/index.tsx"],
+      "@hy/sandbox": ["./packages/sandbox/src/index.tsx"],
+    }
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demos",
+    ".eslintrc.js",
+    "tests",
+    "jest.config.js",
+    "**/fixtures"
+  ],
+  "exclude": [
+    "**/src/hint",
+    "**/src/lint"
+  ]
+
+}

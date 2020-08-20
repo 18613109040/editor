@@ -1,0 +1,40 @@
+{
+  "name": "@hy/sandbox",
+  "version": "1.0.0",
+  "description": "js沙箱",
+  "keywords": [
+    "sandbox"
+  ],
+  "homepage": "",
+  "bugs": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "es",
+    "dist"
+  ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "umi": "3.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+
+  ]
+}
