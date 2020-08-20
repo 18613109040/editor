@@ -20,7 +20,6 @@ console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 const tailPkgList = pkgList
   .map((path) => [join('packages', path, 'src'), join('packages', path, 'docs')])
   .reduce((acc, val) => acc.concat(val), []);
-console.dir(tailPkgList)
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
@@ -46,6 +45,7 @@ export default {
       path: 'https://github.com/ant-design/pro-components',
     },
   ],
+  history: { type: 'hash' },
   analytics: isProduction
     ? {
         ga: 'UA-173569162-1',
