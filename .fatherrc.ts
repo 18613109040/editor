@@ -7,7 +7,9 @@ import { join } from 'path';
 const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.',
 );
-
+console.dir("=========")
+console.dir(tailPkgs)
+console.dir("=========")
 export default {
   cjs: { type: 'babel', lazy: true },
   esm: {
