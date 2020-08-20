@@ -3,11 +3,11 @@ title: 介绍
 order: 10
 sidemenu: false
 hero:
-  title: react-CodeEditor
-  desc: 🏆 使用 react-CodeEditor
+  title: "@hy/code-editor"
+  desc: 🏆 使用 @hy/code-editor
   actions:
     - text: 快速开始 →
-      link: /docs/getting-started-editor
+      link: /design/editor-design
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
     title: 简单易用
