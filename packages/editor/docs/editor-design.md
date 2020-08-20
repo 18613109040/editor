@@ -44,23 +44,23 @@ nav:
 9. 全屏编辑
 10. 运行校验
 
-### 3. 编写目的和范围
+## 3. 编写目的和范围
 
 - 说明技术如何选型
 - 说明低代码编辑器具有的功能
 - 说明低代码编辑器使用场景
 
-### 4. 技术选型
+## 4. 技术选型
 
 经过对比和分析目前市面开源编辑器功能和扩展性分析,最终选择 CodeMirror
 
 详细选型文档见 [文档] (/design/editor-selection)
 
-### 5. 业务调用
+## 5. 业务调用
 
 ![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/tapd_41909965_1597896506_86.png)
 
-### 6. 应用架构图
+## 6. 应用架构图
 
 ![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/tapd_41909965_1597282124_45.png)
 
@@ -87,15 +87,15 @@ function(a,b,c) { return a + b + c }
 
 功能: 在指定的盒子里运行代码。更多描述请查看 [js沙箱](/design/sandbox-design)
 
-### 9. API属性
+## 7. API属性
 
 详细接口属性见文档 [配置项](/api/editor-api)
 
-### 10. 使用
+## 8. 使用
 
 具体使用见 [例子](/example/editor-example)
 
-### 11. 特性
+## 9. 特性
 
 - 多语法支持
 - 多主题支持
