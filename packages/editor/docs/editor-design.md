@@ -56,11 +56,11 @@ nav:
 
 ### 5. 业务调用
 
-![图片描述](https://www.tapd.cn/tfl/pictures/202008/tapd_41909965_1597896506_86.png)
+![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/tapd_41909965_1597896506_86.png)
 
 ### 6. 应用架构图
 
-![图片描述](https://www.tapd.cn/tfl/pictures/202008/tapd_41909965_1597282124_45.png)
+![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/tapd_41909965_1597282124_45.png)
 
 ### 7. 参数解析器
 

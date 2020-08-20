@@ -98,4 +98,4 @@ function compileCode(code) {
 
 ## 实现原理
 
-![图片描述](https://www.tapd.cn/tfl/pictures/202008/tapd_41909965_1597282320_53.png)
+![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/tapd_41909965_1597282320_53.png)
