@@ -75,21 +75,25 @@ nav:
 
 ![图片描述] (https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/1-Page-3.png)
 
-## 10. JS沙箱运行器引擎架构
+## 10. 注册机制
+
+![图片描述] (https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/1-Page-11.png)
+
+## 11. JS沙箱运行器引擎架构
 
 ![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/1597925168600_886B3622-D3A4-4A35-96FA-9DDE5A03FCCD.png)
 
 沙箱: 描述请查看 [js沙箱](/design/sandbox-design)
 
-## 11. 低代码编辑器引擎API
+## 12. 低代码编辑器引擎API
 
 详细接口属性见文档 [配置项](/api/editor-api)
 
-## 12. 低代码编辑器引擎使用
+## 13. 低代码编辑器引擎使用
 
 具体使用见 [例子](/example/editor-example)
 
-## 13. 低代码编辑器引擎特性
+## 14. 低代码编辑器引擎特性
 
 - 多语法支持
 - 多主题支持

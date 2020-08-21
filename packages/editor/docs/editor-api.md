@@ -211,6 +211,13 @@ tables: { table1: ['name', 'score', 'birthDate'], table2: ['bcd'], table3: ['edd
 getEditor={(ref) => editor = ref}
 ```
 
+## Editor.setValue
+
+- Type: `function`
+
+设置编辑器的值 Editor 为获取编辑器的实例
+
+
 ## registerHelper
 
 - Type: `function`
