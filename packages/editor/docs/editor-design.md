@@ -75,9 +75,9 @@ nav:
 
 ![图片描述] (https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/1-Page-3.png)
 
-## 10. 注册机制
+## 10. 函数注册机制
 
-![图片描述] (https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/1-Page-11.png)
+![图片描述] (https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/1.png)
 
 ## 11. JS沙箱运行器引擎架构
 
