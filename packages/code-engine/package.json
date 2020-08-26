@@ -1,0 +1,43 @@
+{
+  "name": "@hy/code-engine",
+  "version": "1.0.0",
+  "description": "低代码引擎",
+  "keywords": [
+    "code-engine"
+  ],
+  "homepage": "",
+  "bugs": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "es",
+    "dist"
+  ],
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.11.4",
+    "whatwg-fetch": "^3.4.0",
+    "axios": "^0.20.0"
+  },
+  "peerDependencies": {
+    "umi": "3.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+
+  ]
+}
