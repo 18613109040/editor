@@ -20,7 +20,9 @@
     "composite": true,
     "paths": {
       "@hy/code-editor": ["./packages/editor/src/index.tsx"],
-      "@hy/sandbox": ["./packages/sandbox/src/index.tsx"],
+      "@hy/sandbox": ["./packages/sandbox/src/index.ts"],
+      "@hy/code-engine": ["./packages/code-engine/src/index.ts"],
+      "@hy/expression-editor": ["./packages/expression-editor/src/index.tsx"],
     }
   },
   "include": [

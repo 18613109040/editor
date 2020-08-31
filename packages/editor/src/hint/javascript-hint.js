@@ -42,7 +42,6 @@
       token.end = cur.ch;
       token.string = token.string.slice(0, cur.ch - token.start);
     }
-
     var tprop = token;
     // If it is a property, find out what it is a property of.
     while (tprop.type == "property") {

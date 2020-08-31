@@ -1,9 +1,10 @@
 {
-  "name": "@hy/code-engine",
+  "name": "@hy/expression-editor",
   "version": "1.0.0",
-  "description": "低代码引擎",
+  "description": "基于codeMirror表达式编辑器",
   "keywords": [
-    "code-engine"
+    "code-editor",
+    "codemirror"
   ],
   "homepage": "",
   "bugs": "",
@@ -27,13 +28,9 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@babel/core": "^7.11.4",
-    "axios": "^0.20.0",
-    "@babel/types": "^7.11.0",
-    "@babel/traverse": "^7.11.0",
-    "@babel/parser": "^7.11.4",
-    "@babel/generator": "^7.11.4",
-    "@babel/preset-env": "^7.11.0"
+    "antd": "^4.4.3",
+    "ramda": "^0.27.1",
+    "axios": "^0.20.0"
   },
   "peerDependencies": {
     "umi": "3.x"
