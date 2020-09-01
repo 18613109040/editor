@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import CodeEditor from '@hy/code-editor'
 import codeEngine from '@hy/code-engine'
 import createSandbox from '@hy/sandbox'
-import { Row, Col, Button  } from 'antd'
+import { Row, Col, Button } from 'antd'
 import Variable from './component/variable'
 import Function from './component/function'
 import Description from './component/description'
@@ -17,7 +17,7 @@ interface IState {
   cacheFuncNode: any;
 }
 class ExpressionEditor extends PureComponent<IProps, IState> {
-  public editor: any;
+  public editor: any
   constructor(props: IProps) {
     super(props)
     this.editor = null
@@ -30,24 +30,24 @@ class ExpressionEditor extends PureComponent<IProps, IState> {
       }
     }
   }
-  public componentDidMount(){
+  public componentDidMount() {
     this.setHintOptions()
   }
   public insertValue = (code: string, pos = 0) => {
     const cur = this.editor.getCursor()
     this.editor.replaceRange(code, cur, cur, '+insert')
-    setTimeout(()=> {
+    setTimeout(() => {
       const cur = this.editor.getCursor()
       this.editor.setCursor({ line: cur.line, ch: cur.ch - pos })
-    },500)
+    }, 500)
 
   }
   public debugerCode = async () => {
     const code = this.editor.getValue()
     const mappingSrouce = this.variableMapping("title", "key")
-    if(code) {
+    if (code) {
       try {
-        const str = codeEngine(code, {identifierMapping: mappingSrouce})
+        const str = codeEngine(code, { identifierMapping: mappingSrouce })
         const context = this.getVariableValue()
         const sandbox = createSandbox({ ...context }, {})
         const res = await sandbox(str)
@@ -71,7 +71,7 @@ class ExpressionEditor extends PureComponent<IProps, IState> {
     VARIABLE_DATA.map(item => {
       item.props.forEach(props => {
         const keys = props.key.split(".")
-        if(!variable[keys[0]]) {
+        if (!variable[keys[0]]) {
           variable[keys[0]] = {}
         }
         variable[keys[0]][keys[1]] = props.value
@@ -106,7 +106,6 @@ class ExpressionEditor extends PureComponent<IProps, IState> {
     this.insertValue(node.name, 1)
   }
   public handleFuncMouseEnter = (info: any) => {
-    console.dir(info)
     const { node } = info
     this.setState({
       selectFuncNode: node
@@ -118,30 +117,31 @@ class ExpressionEditor extends PureComponent<IProps, IState> {
       <div className="expression-editor">
         <Button onClick={this.debugerCode}>调试</Button>
         <CodeEditor
-          theme="neo"
-          value= ""
+          theme="neat"
+          value=""
           mode="javascript"
-          renderToolBar={()=> <></>}
+          renderToolBar={() => <></>}
           lint={false}
-          gutters = {["CodeMirror-linenumbers"]}
+          height="200px"
+          gutters={["CodeMirror-linenumbers"]}
           getEditor={(ref) => this.editor = ref}
-          hintOptions={ this.state.hintOptions }
+          hintOptions={this.state.hintOptions}
         />
         <Row className="action-bar">
-          <Col  xs={24} sm={12} md={24} lg={7} xl={7}>
+          <Col xs={24} sm={12} md={24} lg={7} xl={7}>
             <Variable
               variableData={VARIABLE_DATA}
               onClick={this.insertValue}
             />
           </Col>
-          <Col  xs={24} sm={12} md={24} lg={{span:7, offset: 1}} xl={{span: 5, offset: 1}}>
+          <Col xs={24} sm={12} md={24} lg={{ span: 7, offset: 1 }} xl={{ span: 5, offset: 1 }}>
             <Function
               funcTreeData={FUNCTION_TREE}
               onSelect={this.handleFuncSelect}
               onMouseEnter={this.handleFuncMouseEnter}
             />
           </Col>
-          <Col  xs={24} sm={12} md={24} lg={{span:7, offset: 1}} xl={{span:10, offset: 1}}>
+          <Col xs={24} sm={12} md={24} lg={{ span: 7, offset: 1 }} xl={{ span: 10, offset: 1 }}>
             <Description
               title={selectFuncNode.title}
               description={selectFuncNode.description}

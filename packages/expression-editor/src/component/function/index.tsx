@@ -12,12 +12,12 @@ interface IProps {
 const Function: React.FC<IProps> = (props: IProps): ReactElement => {
   const { onSelect, funcTreeData, onMouseEnter } = props
   const handleSelectNode = (selectedKeys: Key[], info: ITreeNodeInfo) => {
-    if(info.node && info.node.description) {
+    if (info.node && info.node.description) {
       onSelect && onSelect(info)
     }
   }
   const handleTreeMouseEnter = (info: any) => {
-    if(info.node && info.node.description) {
+    if (info.node && info.node.description) {
       onMouseEnter && onMouseEnter(info)
     }
   }
@@ -29,7 +29,7 @@ const Function: React.FC<IProps> = (props: IProps): ReactElement => {
           onSelect={handleSelectNode}
           treeData={funcTreeData}
           onMouseEnter={handleTreeMouseEnter}
-          // onMouseLeave={handleTreeMouseLeave}
+        // onMouseLeave={handleTreeMouseLeave}
         />
       </Card>
     </div>

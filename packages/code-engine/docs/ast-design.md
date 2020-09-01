@@ -19,6 +19,21 @@ nav:
 
 [在线AST转换工具](https://astexplorer.net/)
 
+## AST的使用场景
+
+- 代码语法的检查、代码风格的检查、代码的格式化、代码的高亮、代码错误提示、代码自动补全等等
+  - 如JSLint、JSHint对代码错误或风格的检查，发现一些潜在的错误
+  - IDE的错误提示、格式化、高亮、自动补全等等
+
+- 代码混淆压缩
+  - UglifyJS2等
+
+- 优化变更代码，改变代码结构使达到想要的结构
+  - 代码打包工具webpack、rollup等等
+  - CommonJS、AMD、CMD、UMD等代码规范之间的转化
+  - CoffeeScript、TypeScript、JSX等转化为原生Javascript
+
+
 ## 解析过程
 
 ### 分词
@@ -41,3 +56,37 @@ Js中语法单元包括:
 建立分析语法单元之间的关系(简单来说语法分析是对语句和表达式识别)
 
 ![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/06.png)
+
+## 表达式
+
+```
+单价 * 数量
+```
+
+转换成AST结构
+
+```
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "BinaryExpression",
+        "left": {
+          "type": "Identifier",
+          "name": "单价"
+        },
+        "operator": "*",
+        "right": {
+          "type": "Identifier",
+          "name": "数量"
+        }
+      }
+    }
+  ],
+  "sourceType": "module"
+}
+```
+
+如果我们需要将 [单价] 替换成对应的变量 ，我们发现此结构就非常简单只需把类型为 Identifier 对应的name 修改成你要的变量即可

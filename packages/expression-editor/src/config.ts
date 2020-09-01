@@ -61,23 +61,23 @@ export const FUNCTION_TREE: IFuncTree[] = [
       {
         key: '0-1',
         title: 'SUM',
-        name: "FX.SUM()",
+        name: 'FX.SUM()',
         description: `
-SUM函数可以获取一组数值的总和
-用法：SUM(数字1,数字2,...)
-示例：SUM(语文成绩,数学成绩, 英语成绩)返回三门课程的总分
+FX.SUM函数可以获取一组数值的总和
+用法：FX.SUM(数字1,数字2,...)
+示例：FX.SUM(语文成绩,数学成绩, 英语成绩)返回三门课程的总分
 `,
       },
       {
         key: '0-2',
         title: 'GETUSERNAME',
-        name: "FX.GETUSERNAME()",
+        name: 'FX.GETUSERNAME()',
         description: `
-GETUSERNAME函数可以获取当前用户的昵称
-用法：GETUSERNAME()
+FX.GETUSERNAME函数可以获取当前用户的昵称
+用法：FX.GETUSERNAME()
 示例：略
 `,
-      }
+      },
     ],
   },
 ];

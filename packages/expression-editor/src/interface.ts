@@ -1,8 +1,8 @@
-import { EventDataNode, DataNode } from "antd/lib/tree";
+import { EventDataNode, DataNode } from 'antd/lib/tree';
 
 interface IExpandNode {
-  name?: string ;
-  description?: string
+  name?: string;
+  description?: string;
 }
 export interface ITreeNodeInfo {
   event: 'select';
@@ -17,7 +17,7 @@ export interface IFuncTree {
   title: string;
   name?: string;
   description?: string;
-  children?: IFuncTree[]
+  children?: IFuncTree[];
 }
 
 // export interface IBaseOption {
@@ -40,5 +40,5 @@ export interface IVariableProps {
 export interface IVariableData {
   title: string;
   key: string;
-  props: IVariableProps[]
+  props: IVariableProps[];
 }

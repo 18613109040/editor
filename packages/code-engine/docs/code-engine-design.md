@@ -37,12 +37,31 @@ nav:
 
 ![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/04.png)
 
-### 3. 低代码引擎框架图
+### 4. 低代码引擎框架图
 
 ![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/02.png)
 
-### 4. 低代码引擎解析的过程如下流程
+### 5. 低代码引擎解析的过程如下流程
 
 ![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/03.png)
 
+### 6. 
 
+![图片描述](https://cdn.jsdelivr.net/gh/18613109040/editor/public/images/08.png)
+
+### 7. 使用方式
+
+```
+codeEngine(code, options)
+```
+
+- code 代码块 (表达式, 低代码)
+- options
+
+```
+{
+  visitor?: Object | null; // 观察AST 节点
+  es5?: boolean; // 是否转换成es5
+  identifierMapping?: Object | null; // 修改AST Identifier 的值
+}
+```
