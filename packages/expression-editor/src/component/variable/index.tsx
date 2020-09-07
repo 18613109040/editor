@@ -5,8 +5,10 @@ import React, { ReactElement, PureComponent } from 'react'
 import { Tabs, Card, Table, Tooltip, Tag } from 'antd'
 import { TYPE_DATA_TAG } from '../../config'
 const { TabPane } = Tabs
+import ParamsModal from '../paramsModal'
 import "./index.less"
-import { IVariableData } from '../../interface'
+import { IVariableData, IParams } from '../../interface'
+import { equals } from '../../utils'
 
 interface IProps {
   variableData: IVariableData[];
@@ -16,6 +18,8 @@ interface IProps {
 interface IState {
   visible: boolean;
   activeKey: string;
+  changeParams: IParams;
+  dataSource: IVariableData[];
 }
 interface IColumns {
   title: string;
@@ -34,7 +38,7 @@ class Variable extends PureComponent<IProps, IState> {
       dataIndex: "type",
       key: "type",
       render: (text: string, record: any, index: number) => {
-        const { type = "其他", color = "lime" } = TYPE_DATA_TAG[Object.prototype.toString.call(record.value)]
+        const { type = "其他", color = "lime" } = TYPE_DATA_TAG[record.type ? `[object ${record.type}]` : Object.prototype.toString.call(record.value)]
         return (<div key={index} className="">
           <Tag className="" color={color}>{type}</Tag>
         </div>)
@@ -44,9 +48,9 @@ class Variable extends PureComponent<IProps, IState> {
       dataIndex: 'value',
       key: 'value',
       render: (text: string, record: any, index: number) => (
-        <div key={index} className="func-table-col">
+        <div key={index} className="func-table-col" >
           <Tooltip placement="topLeft" title={text}><span className="func-table-text">{text}</span></Tooltip>
-          <a>编辑</a>
+          <a onClick={(e) => { e.stopPropagation(); this.handleEidtValue(text, record, index) }}>编辑</a>
         </div>)
     }
   ]
@@ -57,11 +61,23 @@ class Variable extends PureComponent<IProps, IState> {
     super(props)
     this.state = {
       activeKey: props.variableData[0]?.key,
-      visible: false
+      dataSource: props.variableData,
+      visible: false,
+      changeParams: {}
     }
   }
   componentDidUpdate(prevProps: IProps) {
-
+    if (equals(prevProps.variableData, this.props.variableData)) {
+      this.setState({
+        dataSource: prevProps.variableData
+      })
+    }
+  }
+  public handleEidtValue(text: string, record: any, index: number) {
+    this.setState({
+      visible: true,
+      changeParams: { ...record, index }
+    })
   }
   public handleTabsChange = (activeKey: string) => {
     this.setState({ activeKey })
@@ -75,12 +91,27 @@ class Variable extends PureComponent<IProps, IState> {
     const { key, title } = record
     this.props.onClick && this.props.onClick(title || key)
   }
+  public handleFinsh = (values: IParams) => {
+    const { index } = values
+    const { activeKey, dataSource } = this.state
+    const tempData = dataSource
+    tempData.map(item => {
+      if (item.key === activeKey) {
+        item.props[`${index}`] = values
+      }
+    })
+    this.setState({
+      visible: false,
+      dataSource: JSON.parse(JSON.stringify(tempData))
+    })
+
+  }
   public renderTabPane = (): ReactElement => {
-    const { variableData } = this.props
+    const { dataSource } = this.state
     return (
       <>
         {
-          variableData.map((item) => {
+          dataSource.map((item) => {
             const { props, title, key } = item
             return (
               <TabPane tab={title} key={key}>
@@ -110,7 +141,7 @@ class Variable extends PureComponent<IProps, IState> {
 
   }
   render() {
-    const { activeKey } = this.state
+    const { activeKey, visible, changeParams } = this.state
     return (
       <>
         <div className="variable">
@@ -122,6 +153,13 @@ class Variable extends PureComponent<IProps, IState> {
             </Tabs>
           </Card>
         </div>
+        {visible && <ParamsModal
+          onFinish={this.handleFinsh}
+          onCancel={this.handleCancel}
+          visible={visible}
+          params={changeParams}
+        />
+        }
       </>
     )
   }

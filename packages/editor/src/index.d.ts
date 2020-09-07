@@ -49,3 +49,8 @@ declare module "codemirror/addon/hint/anyword-hint.js" {
   const content: any;
   export default content;
 }
+
+declare module "codemirror/addon/lint/json-lint.js" {
+  const content: any;
+  export default content;
+}

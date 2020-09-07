@@ -127,5 +127,8 @@ export const RESOURCES_LIST: IResources[] = [
     mode: "text/x-textile",
     dependentJs: () => import(`codemirror/mode/textile/textile.${"js"}`),
     dependentHint: () => import(`codemirror/addon/hint/anyword-hint.${"js"}`)
+  },{
+    mode: "application/json",
+    dependentLint: () => import(`codemirror/addon/lint/json-lint.${"js"}`),
   }
 ]

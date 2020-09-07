@@ -15,6 +15,7 @@ interface IState {
   hintOptions: Object;
   selectFuncNode: any;
   cacheFuncNode: any;
+  operationResult: string;
 }
 class ExpressionEditor extends PureComponent<IProps, IState> {
   public editor: any
@@ -27,7 +28,8 @@ class ExpressionEditor extends PureComponent<IProps, IState> {
       hintOptions: {
         completeSingle: false,
         keywords: []
-      }
+      },
+      operationResult: ""
     }
   }
   public componentDidMount() {
@@ -51,9 +53,14 @@ class ExpressionEditor extends PureComponent<IProps, IState> {
         const context = this.getVariableValue()
         const sandbox = createSandbox({ ...context }, {})
         const res = await sandbox(str)
-        console.dir(res)
+        this.setState({
+          operationResult: res
+        })
       } catch (error) {
         console.dir(error)
+        this.setState({
+          operationResult: error.toString()
+        })
       }
     }
   }
@@ -112,12 +119,13 @@ class ExpressionEditor extends PureComponent<IProps, IState> {
     })
   }
   render() {
-    const { selectFuncNode } = this.state
+    const { selectFuncNode, operationResult } = this.state
     return (
       <div className="expression-editor">
         <Button onClick={this.debugerCode}>调试</Button>
+        <span>输出结果: {operationResult}</span>
         <CodeEditor
-          theme="neat"
+          theme="ttcn"
           value=""
           mode="javascript"
           renderToolBar={() => <></>}

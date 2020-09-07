@@ -1,4 +1,10 @@
-import { IVariableData, IFuncTree } from './interface';
+import { IVariableData, IFuncTree, IBaseOption } from './interface';
+export const DATA_TYPE: IBaseOption[] = [
+  {key: 'String', value: '字符串'},
+  {key: 'Number', value: '数字'},
+  {key: 'Array', value: '数组'},
+  {key: 'Object', value: '对象'},
+]
 
 export const TYPE_DATA_TAG = {
   '[object String]': {
@@ -32,11 +38,13 @@ export const VARIABLE_DATA: IVariableData[] = [
         key: '$page.productName',
         title: '产品名称',
         value: '衣服',
+        type: 'String',
       },
       {
         key: '$page.productId',
         title: '产品ID',
         value: '123',
+        type: 'String',
       },
     ],
   },
@@ -48,6 +56,7 @@ export const VARIABLE_DATA: IVariableData[] = [
         key: '$system.userName',
         title: '用户名',
         value: '张三',
+        type: 'String',
       },
     ],
   },

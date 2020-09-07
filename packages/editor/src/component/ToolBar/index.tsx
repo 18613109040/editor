@@ -6,7 +6,6 @@ import "./index.less"
 interface IProps {
   onThemeChange: (value: string) => void;
   onModeChange: (value: string) => void;
-  onRunClick: () => void;
   resourceList: any[];
   mode: string;
   renderSelectTheme?: () => ReactElement;

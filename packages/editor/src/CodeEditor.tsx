@@ -2,8 +2,7 @@ import React, { PureComponent, RefObject, ReactElement } from 'react'
 import CodeMirror, { Editor, EditorConfiguration, EditorFromTextArea, Doc } from 'codemirror'
 import { RESOURCES_LIST, IResources, ALL_EVENTS } from './config'
 import ToolBar from './component/ToolBar'
-import ParamsModal from './component/ParamsModal'
-import { equals, removeComments, getFuncParamNames, firstUpperCase } from './util'
+import { equals, firstUpperCase } from './util'
 import 'codemirror/addon/display/placeholder' // 背景提示
 import 'codemirror/addon/edit/matchbrackets' // 左右括号颜色高亮
 import 'codemirror/addon/edit/closebrackets.js' // 当键入时将自动关闭方括号和引号。默认情况下，它将自动关闭()[]{}''""
@@ -170,7 +169,7 @@ class CodeEditor extends PureComponent<ICodeEditorProps, IICodeEditorState> {
    * 组件离开 销毁 CodeMirror
    */
   public componentWillUnmount(): void {
-    this.editor!.toTextArea()
+    this.editor?.toTextArea()
   }
   /**
    * 初始化事件
@@ -337,49 +336,6 @@ class CodeEditor extends PureComponent<ICodeEditorProps, IICodeEditorState> {
   public handleModeChange = (value: string): void => {
     this.setCodeMirrorOption("mode", value)
   }
-  /*** 编译 function 字符串 为运行函数 */
-  public compileStringFunction = (func: string) =>  (new Function('return ' + func))()
-  /*** 点击运行 显示参数配置弹框 */
-  public handleRunCode = () => {
-    const mode = this.editor?.getOption("mode")
-    if(mode === "javascript") this.showRunParamsModal()
-  }
-  /*** 显示参数配置弹框 */
-  public showRunParamsModal(): void {
-    const params = getFuncParamNames(this.editor!.getValue())
-    this.setState({
-      visibleRunModal: true,
-      funcParams: params
-    })
-  }
-  /**
-   * 运行js类型code
-   * @function removeComments 去除code 里面注释
-   * @function compileStringFunction 编译function字符串
-   */
-  public runJsCode(params: any[]){
-    const code = removeComments(this.editor!.getValue())
-    let result: string = ''
-    try {
-      result = this.compileStringFunction(code).apply(null, params)
-    } catch (error) {
-      result = error
-    }
-    this.setState({
-      funcResult: result.toString()
-    })
-  }
-  /** 获取参数结果 运行函数 */
-  public handleRunParamsFinish = (values: any[]): void => {
-    this.handleRunParamsCancel()
-    this.runJsCode(values)
-  }
-  /** 关闭参数配置弹框 */
-  public handleRunParamsCancel = (): void => {
-    this.setState({
-      visibleRunModal: false,
-    })
-  }
   /**
    * 根据 cusResourceList 类型 进行合并
    */
@@ -388,7 +344,6 @@ class CodeEditor extends PureComponent<ICodeEditorProps, IICodeEditorState> {
     return Object.prototype.toString.call(cusResourceList) === "[object Object]" ? [...RESOURCES_LIST, cusResourceList as IResources]:  [...RESOURCES_LIST, ...cusResourceList as IResources[]]
   }
   public render(): ReactElement {
-    const { visibleRunModal, funcParams } = this.state
     const { mode, renderSelectTheme, renderSelectMode, renderSelectFontSize, renderToolBar } = this.props
     const cusResources = this.mergeResource()
     return (
@@ -400,7 +355,6 @@ class CodeEditor extends PureComponent<ICodeEditorProps, IICodeEditorState> {
           renderToolBar ? renderToolBar() : <ToolBar
               onThemeChange={this.handleThemeChange}
               onModeChange={this.handleModeChange}
-              onRunClick={this.handleRunCode}
               mode={mode}
               resourceList={cusResources}
               renderSelectTheme={renderSelectTheme}
@@ -408,18 +362,6 @@ class CodeEditor extends PureComponent<ICodeEditorProps, IICodeEditorState> {
               renderSelectFontSize={renderSelectFontSize}
             />
         }
-        {/* 输出结果 */}
-        {/* <div className="result-code-box" >
-          <div className="title">输出结果: </div>
-          <div>{funcResult}</div>
-        </div> */}
-        {/* 运行参数配置弹框 */}
-        <ParamsModal
-          visible={visibleRunModal}
-          params={funcParams}
-          onCancel={this.handleRunParamsCancel}
-          onFinish={this.handleRunParamsFinish}
-        />
       </>
     )
   }

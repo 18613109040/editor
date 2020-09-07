@@ -20,25 +20,28 @@ export interface IFuncTree {
   children?: IFuncTree[];
 }
 
-// export interface IBaseOption {
-//   key: string;
-//   value: string;
-// }
 
-// export interface IParams {
-//   key?: string;
-//   name?: string;
-//   value?: string | [] | object | number;
-//   type?: string;
-//   index?: number;
-// }
+export interface IBaseOption {
+  key: string;
+  value: string;
+}
+
+export interface IParams {
+  key?: string;
+  name?: string;
+  value?: string | [] | object | number;
+  type?: string;
+  index?: number;
+}
 export interface IVariableProps {
   key: string;
   title: string;
   value: any;
+  type?: string;
 }
 export interface IVariableData {
   title: string;
   key: string;
   props: IVariableProps[];
 }
+

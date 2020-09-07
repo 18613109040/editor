@@ -110,17 +110,17 @@ export default class CodeCompiler {
             // @ts-ignore
             path.node.callee.name = `await ${path.node.callee.name}`;
           }
-          // if (path.node.type === 'Identifier') {
-          //   if (identifierMapping![path.node.name]) {
-          //     path.node.name = identifierMapping![path.node.name];
-          //   }
-          // }
-        },
-        Identifier(path: any) {
-          if (identifierMapping![path.node.name]) {
-            path.node.name = identifierMapping![path.node.name];
+          if (path.node.type === 'Identifier') {
+            if (identifierMapping![path.node.name]) {
+              path.node.name = identifierMapping![path.node.name];
+            }
           }
-        }
+        },
+        // Identifier(path: any) {
+        //   if (identifierMapping![path.node.name]) {
+        //     path.node.name = identifierMapping![path.node.name];
+        //   }
+        // }
       };
     }
   }
