@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[7],{rVnM:function(e,n,a){"use strict";a.r(n);var t=a("ZZRV"),s=a.n(t),i=a("sMcp"),o=()=>s.a.createElement(i["a"],{value:"function add(a, b){ return a+b };",mode:"javascript",hintOptions:{completeSingle:!1,keywords:["zs","lis"]}});n["default"]=o}}]);
